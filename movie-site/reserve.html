@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>영화 예매 페이지</h1>
+    <a href="index.html">홈</a> | <a href="surver.html">선호도 조사</a> | <a href="result.html">예매 결과 예시</a>
+    <hr>
+
+    <form>
+        <fieldset>
+            <legend>기본 정보</legend>
+            <p>이름: <input type="text"></p>
+            <p>이메일: <input type="email"></p>
+        </fieldset>
+        <fieldset>
+            <legend>관람 정보</legend>
+            <p>관람 날짜: <input type="date"></p>
+            <p>관람 시간: <select name="select" id="sad">
+                <option value="">시간 선택</option>
+                <option value="10">10:00</option>
+                <option value="13">13:00</option>
+                <option value="16">16:00</option>
+                <option value="19">19:00</option>
+            </select></p>
+            <p>영화 선택:</p> 
+            <p><input type="radio" name="radio"> 뽀로로의 대모험 <input type="radio" name="radio"> 뽀로로 극장판 슈퍼썰매 대모험</p>
+            <p>좌석 종류:</p>
+            <p><input type="checkbox" name="checkbox"> 일반석 <input type="checkbox" name="checkbox"> 프리미엄석 <input type="checkbox" name="checkbox"> 커플석 </p>
+            <p>인원수: <input type="number" min="1" max="8" value="1"></p>
+            <p>요청사항:</p> 
+            <textarea>문 앞에 놓아주세요</textarea>
+        </fieldset>
+        <input type="submit" value="예매 정보 제출"> <input type="reset" value="다시 작성">
+    </form>
+
+
+</body>
+</html>
