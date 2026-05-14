@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function aaa(){
+            document.write("aaa1")
+        }
+        function aaa(){
+            document.write("aaa2")
+        }
+        function aaa(){
+            document.write("aaa3")
+            console.log(arguments)
+        }
+
+        aaa(10,20)
+        aaa()
+        aaa('1A')
+        aaa(1,2,3,function(){})
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
