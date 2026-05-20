@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let min = 1
+        let max = 100
+        let siu = Math.floor(Math.random() * (max - min + 1)) + min
+        let trys = 7
+        let count = 0
+        let trylist = []
+        document.write(`현재 범위 ${min} ~ ${max}<br>게임을 하시려면 콘솔창에 inum(숫자)를 적으세요<br><br>`)
+
+        function inum(num){
+            if (count > trys){
+                document.write(`게-무 오와리<br>`)
+                return
+            }
+
+            if (num >= min && num <= max){
+                trylist.push(num)
+                if (num == siu){
+                    document.write(`정답입니다!<br>입력 기록 : ${trylist}<br>총 시도 횟수 : ${++count}<br>`)
+                }else if (num > siu){
+                    document.write(`DOWN!<br>`)
+                    max = num
+                    document.write(`남은 기회 : ${trys - ++count}<br>`)
+                    document.write(`현재 범위 ${min} ~ ${max}<br><br>`)
+                }else if (num < siu){
+                    document.write("UP!<br>")
+                    min = num
+                    document.write(`남은 기회 : ${trys - ++count}<br>`)
+                    document.write(`현재 범위 ${min} ~ ${max}<br><br>`)
+                }
+            }else{
+                document.write("범위 안의 숫자를 입력하세요 ! <br>")
+            }
+            
+        }
+
+        
+    </script>
+</body>
+</html>
