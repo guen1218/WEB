@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width : 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2><em></em>ㅎㅇ</h2>
+    <h2 id="h01" class="c01">ㅎㅇ</h2>
+    <h2 id="h02">ㅎㅇ</h2>
+    <h2 class="c01">ㅎㅇ</h2>
+    <!-- <button onclick="alert('야르렁')">야르렁</button> -->
+    <figure></figure>
+     <button>야르렁</button>
+    <script>
+        let btn = document.querySelector('button')
+        btn.addEventListener('click', function(){
+            // alert('야르렁ㄴsadsㄴㄴ')
+
+            // h2 태그중 첫번째 태그 선택
+            let h2Tag = document.querySelector('h2')
+            // h2Tag.innerTEXT = "<mark>에이요.....;;;;;</mark>"
+            h2Tag.innerHTML = "<mark>에이요.....;;;;;</mark>"
+
+            img.src ="../../../images/dog.png"
+        })
+
+        // btn.onclick = function(){
+        //     alert('야르렁ㄴㄴㄴ')
+        // }
+    </script>
+</body>
+</html>
