@@ -4,8 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        // 보완점: */ 먼저 계산, 시작값 음수 가능, 그냥 음수 넣기 가능
+        window.onload = function(){
+            let display = document.getElementById('display');
+            let button = document.querySelector(".buttons"); 
+            let oper = ['+','-','*','/']
+
+            button.addEventListener("click", (i) => {
+                let lastchar = display.value[display.value.length-1]
+                if(oper.includes(lastchar) && oper.includes(i.target.value)){return}
+                if(display.value.length === 0 && oper.includes(i.target.value)){return}
+                if(i.target.tagName === 'BUTTON'){ 
+                    display.value += i.target.value;
+                }
+            });
+
+            document.querySelector(".clear").addEventListener("click", ()=>{
+                display.value = ""
+            })
+
+            document.querySelector(".equal").addEventListener("click", ()=>{
+                let split_display = display.value.split(/([+\-*/])/)
+                if(split_display.length < 3){
+                    return
+                }
+                if(split_display.length % 2 === 0){
+                    split_display = split_display.slice(0,-1)
+                }
+                
+                let result = Number(split_display[0])
+                for(let i=2; i<split_display.length; i+=2){
+                    switch(split_display[i-1]){
+                        case '+':
+                            result += Number(split_display[i])
+                            break
+                        case '-':
+                            result -= Number(split_display[i])
+                            break
+                        case '*':
+                            result *= Number(split_display[i])
+                            break
+                        case '/':
+                            result /= Number(split_display[i])
+                            break
+                    }
+                }
+                display.value = Math.round(result)
+            })
+        }
+            
+        
+    </script>
 </head>
 <body>
-    
+    <div style="border: 1px solid; width: 130px;">
+        
+        <input type="text" size="13" readonly style="text-align: right;" id="display">
+        
+        <div class="buttons">
+            <button class="button" value="1">1</button>
+            <button class="button" value="2">2</button>
+            <button class="button" value="3">3</button>
+            <button class="button" value="+">+</button><br>
+            
+            <button class="button" value="4">4</button>
+            <button class="button" value="5">5</button>
+            <button class="button" value="6">6</button>
+            <button class="button" value="-">-</button><br>
+            
+            <button class="button" value="7">7</button>
+            <button class="button" value="8">8</button>
+            <button class="button" value="9">9</button>
+            <button class="button" value="*">*</button><br>
+            
+            <button class="button" value="0">0</button>
+            <button class="clear">c</button>
+            <button class="equal">=</button>
+            <button class="button" value="/">/</button>
+        </div>
+    </div>
 </body>
 </html>
