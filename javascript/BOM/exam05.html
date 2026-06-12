@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let toggle = function(check){
+            let hobbies = document.myform.hobby
+            for(let i = 0; i < hobbies.length; i++){
+                hobbies[i].checked = check
+            }
+        }
+        window.onload = function(){
+            let hobbies = document.myform.hobby
+            let showBtn = document.querySelector('#showBtn')
+            showBtn.addEventListener('click', function(){
+                let msg = ''
+                for(let i = 0; i < hobbies.length; i++){
+                    if(hobbies[i].checked) {
+                        msg += hobbies[i].value + '\n'
+                    }
+                }
+                alert(msg)
+            })
+            /*
+            let selectBtn = document.getElementById("selectBtn")
+            selectBtn.addEventListener('click', function(){
+                for(let i = 0; i < hobbies.length; i++){
+                    hobbies[i].checked = true
+                }
+            })
+            let clearBtn = document.getElementById("clearBtn")
+            clearBtn.addEventListener('click', function(){
+                for(let i = 0; i < hobbies.length; i++){
+                    hobbies[i].checked = false
+                }
+            })
+            */
+            // let toggleBtn = document.querySelector('#toggleBtn')
+            // toggleBtn.addEventListener('click', function(){
+            //     for(let hobby of hobbies){
+            //         hobby.checked = !hobby.checked
+            //     }
+            let toggleBtn = document.querySelector('#toggleBtn')
+            toggleBtn.addEventListener('click', function(){
+                let check = false
+                for(let hobby of hobbies){
+                    if(!hobbies.checked == false) {
+                        check = true
+                        break
+                    }
+                }
+                for(let hobby of hobbies){
+                    hobby.checked = check
+                }
+                // for let(hobby of hobbies) {
+                //     hobby.checked = !hobby.checked
+                // }
+            })
+        }
+    </script>
+
+</head>
+<body>
+    <form name="myform">
+        당신의 취미는???<br>
+        <input type="checkbox" name="hobby" value="음악감상">음악감상<br>
+        <input type="checkbox" name="hobby" value="영화감상">영화감상<br>
+        <input type="checkbox" name="hobby" value="게임">게임<br>
+        <input type="checkbox" name="hobby" value="명상">명상<br>
+        <button type="button" id="toggleBtn">전체선택/해제</button>
+        <!-- <button type="button" id="selectBtn" onclick="toggle(true)">전체선택</button>
+        <button type="button" id="clearBtn" onclick="toggle(false)">전체해제</button> -->
+        <button type="button" id="showBtn">결과보기</button>
+    </form>
+    
+</body>
+</html>
